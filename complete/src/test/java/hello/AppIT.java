@@ -22,9 +22,7 @@ public class AppIT extends AbstractBootYarnClusterTests {
 
 	@Test
 	public void testApp() throws Exception {
-		String[] args = new String[] {
-				"--spring.yarn.client.files[0]=file:target/gs-yarn-basic-single-app-0.1.0.jar" };
-		ApplicationInfo info = submitApplicationAndWait(Application.class, args);
+		ApplicationInfo info = submitApplicationAndWait(Application.class, new String[0]);
 		assertThat(info.getYarnApplicationState(), is(YarnApplicationState.FINISHED));
 
 		List<Resource> resources = ContainerLogUtils.queryContainerLogs(
