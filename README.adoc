@@ -178,3 +178,4 @@ modification_time=1395501405412; access_time=0; owner=hadoop; group=supergroup; 
 
 Congratulations! You've just developed a Spring YARN application! 
 
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/footer.adoc[]
