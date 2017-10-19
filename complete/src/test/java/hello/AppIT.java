@@ -8,6 +8,7 @@ import static org.hamcrest.Matchers.greaterThan;
 
 import java.io.File;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.hadoop.yarn.api.records.YarnApplicationState;
 import org.junit.Test;
@@ -22,7 +23,7 @@ public class AppIT extends AbstractBootYarnClusterTests {
 
 	@Test
 	public void testApp() throws Exception {
-		ApplicationInfo info = submitApplicationAndWait(Application.class, new String[0]);
+		ApplicationInfo info = submitApplicationAndWait(Application.class, new String[0], 120, TimeUnit.SECONDS);
 		assertThat(info.getYarnApplicationState(), is(YarnApplicationState.FINISHED));
 
 		List<Resource> resources = ContainerLogUtils.queryContainerLogs(
